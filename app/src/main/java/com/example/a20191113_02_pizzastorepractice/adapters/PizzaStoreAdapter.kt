@@ -1,6 +1,7 @@
 package com.example.a20191113_02_pizzastorepractice.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.a20191113_02_pizzastorepractice.R
 import com.example.a20191113_02_pizzastorepractice.datas.PizzaStoreData
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.pizza_list_item.*
 
 class PizzaStoreAdapter(context:Context,res:Int,list:ArrayList<PizzaStoreData>):ArrayAdapter<PizzaStoreData>(context,res,list) {
 

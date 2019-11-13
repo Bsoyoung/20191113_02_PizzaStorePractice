@@ -3,6 +3,7 @@ package com.example.a20191113_02_pizzastorepractice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.get
 import com.example.a20191113_02_pizzastorepractice.adapters.PizzaStoreAdapter
 import com.example.a20191113_02_pizzastorepractice.datas.PizzaStoreData
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,16 +25,19 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
-        pizzaDetailBtn.setOnClickListener {
+        pizListView.setOnItemClickListener { parent, view, position, id ->
 
-            var intent = Intent(this,R.layout.activity_pizza_detail::class.java)
+            var clickedStore = pizzaStoreList.get(position)
 
+            var intent = Intent(mContext,R.layout.activity_pizza_detail::class.java)
+            intent.putExtra("store",clickedStore)
+            startActivity(intent)
         }
 
     }
 
     override fun setValues() {
-        pizzaStoreAdapter = PizzaStoreAdapter(this,pizzaStoreList)
+        pizzaStoreAdapter = PizzaStoreAdapter(mContext,pizzaStoreList)
         pizListView.adapter = pizzaStoreAdapter
 
     }
